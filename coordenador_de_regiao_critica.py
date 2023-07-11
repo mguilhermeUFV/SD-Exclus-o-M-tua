@@ -45,7 +45,6 @@ def handle_process(conn, addr):
             print(f"Processo {addr} fechou a conexão.")
             break  # Quebra o loop while.
         print(f"Mensagem recebida de {addr}: {msg}")
-        # Aqui, você deve processar a mensagem e agir de acordo
         msg_parts = msg.split('|')
         if msg_parts[0] == '1': # REQUEST
             with queue_lock:
@@ -73,7 +72,6 @@ def interface():
     print("Iniciando a interface...")
     while True:
         command = input()
-        # Aqui, você deve implementar os comandos da interface
         if command == '1': # imprimir a fila de pedidos atual
             with queue_lock:
                 print(f"Fila de pedidos atual: {list(request_queue.queue)}")
